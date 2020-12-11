@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+  }
+  
+  
+  .containerx{
+    margin: 16%;
+    margin-left: 500px;
+    padding: 10px;
+    width: 1000px;
+    height: 290px;
+    border: 1px #333 solid;
+    border-radius: 50px;
+    
+  }
+  
+  #custom-link{
+    color: #333;
+    padding-left: 520px;
+  }
+  
+  
+  .containerx h1{
+    text-align: center;
+    font-weight: bold;
+    padding-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(136, 129, 129);
+  }
+  
+  .containerx button{
+    margin-top: 20px;
+    margin-left: 470px;
+    padding-left: 80px;
+    padding-right: 80px;
+    text-align: center;
+    font-size: 20px; 
+  }
+  
+  #link-one{
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  
+  .containerx a:hover{
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .containerx label{
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+  }
+  
+  
+  
+  
+  /* ******************************REGISTRATION FORM************************************************************ */
+  
+  
+  
+  .container-register{
+    margin: 16%;
+    padding: 10px;
+    width: 70%;
+    height: 350px;
+    border: 1px #333 solid;
+    border-radius: 50px;
+    
+  }
+  
+  #custom-register-link{
+    color: #333;
+    padding-left: 570px;
+    margin-top: 20px;
+  }
+  
+  #custom-link{
+    color: #333;
+    padding-left: 520px;
+  }
+  
+  
+  .container-register h1{
+    text-align: center;
+    font-weight: bold;
+    padding-top: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(136, 129, 129);
+  }
+  
+  .container-register button{
+    margin-top: 20px;
+    margin-left: 470px;
+    padding-left: 80px;
+    padding-right: 80px;
+    text-align: center;
+    font-size: 20px; 
+  }
+  
+  #link-one{
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  
+  .container-register a:hover{
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .container label{
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    /* color: rgb(56, 54, 54); */
+  }
+  
+  
+  

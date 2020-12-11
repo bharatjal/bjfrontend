@@ -1,0 +1,111 @@
+@import "~bootstrap/scss/bootstrap";
+@import "~react-pro-sidebar/dist/scss/styles.scss";
+.debug {
+  border: 1px dashed red;
+}
+
+// Dashboard Sidebar
+#wrapper {
+  overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+  height: 100vh;
+}
+//   margin-left: -15rem;
+//   transition: margin 0.25s ease-out;
+//   background-attachment: fixed;
+//   background-image: url(./img/sidebar-bg.jpg);
+//   background-size: cover;
+//   // overflow-y: scroll;
+//   // .sidebar-heading {
+//   //   padding: 0.875rem 1.25rem;
+//   //   font-size: 1.2rem;
+//   // }
+
+//   .list-group {
+//     width: 15rem;
+//     .list-group-item {
+//       background-color: rgba($color: #fff, $alpha: 0.55);
+//     }
+//   }
+//   .nav-parent{
+//     color: #000;
+//     background-color: rgba($color: #fff, $alpha: 0.55);
+//   }
+//   .sub-menu a {
+//     // background-color: #ffc107;
+//     color: #222;
+//   }
+// }
+
+#page-content-wrapper {
+  min-width: 100vw;
+}
+
+#sidebar-wrapper.sidebar-opened {
+  margin-left: 0;
+}
+
+#sidebar-wrapper.sidebar-closed {
+  margin-left: -16.9rem;
+}
+
+.pro-sidebar.md {
+  left: 0;
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #wrapper.sidebar-opened #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+}
+.deliveriesTbl {
+  th {
+    vertical-align: middle;
+    &:not(:first-child) {
+      min-width: 158px;
+    }
+    span {
+      display: block;
+      border-bottom: 1px solid #ddd;
+    }
+  }
+}
+
+.isTable {
+  .react-bootstrap-table {
+    overflow: auto;
+  }
+  #table-to-xls-all-data {
+    table-layout: auto !important;
+  }
+  .react-bootstrap-table-pagination {
+    margin-top: 1rem;
+  }
+  .pagination {
+    justify-content: flex-end;
+  }
+  .react-bootstrap-table th {
+    font-size: 14px;
+  }
+}
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 100%;
+    margin: 1.75rem auto;
+  }
+}
+.spinnerCont{
+  height:70vh;
+}
