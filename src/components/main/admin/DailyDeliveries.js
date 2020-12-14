@@ -40,6 +40,7 @@ export default class DailyDeliveries extends React.Component {
   };
 
   componentDidMount = () => {
+
     let x = this.state.token;
 
     const url = "https://bharatjaldispenser.herokuapp.com/delivery/daily";
@@ -57,6 +58,7 @@ export default class DailyDeliveries extends React.Component {
         // console.log(responseJson);
         this.setState({ loading: false })
         this.setState({ data: responseJson?.deliveries });
+        console.log(responseJson)
       })
       .catch((error) => {
         this.setState({ loading: false })
@@ -110,7 +112,7 @@ export default class DailyDeliveries extends React.Component {
       // },
       {
         dataField: "date",
-        text: "Date",
+        text: "Date ",
         // sort: true,
         filter: customFilter({
           type: FILTER_TYPES.DATE,
@@ -230,6 +232,7 @@ export default class DailyDeliveries extends React.Component {
                       sheet="Daily Deliveries"
                       buttonText="Download as XLS"
                     />
+                    
                   </Col>
                   <hr />
                 </Row>
