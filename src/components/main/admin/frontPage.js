@@ -9,7 +9,7 @@ export default class FrontPage extends React.Component {
       <Container className="text-center">
         <Row>
           <Col>
-            <h1 className="display-1 mb-2 my-sm-5">Bharat Jal</h1>
+            <h3 className="display-1 mb-2 my-sm-5 my-font" style={{ fontSize : '70px'}}>Bharat Jal</h3>
             <Link to="/admin-console" className="btn btn-primary btn-md mx-2">
               Admin
             </Link>
