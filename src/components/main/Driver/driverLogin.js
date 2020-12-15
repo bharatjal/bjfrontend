@@ -6,6 +6,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import { toast } from "react-toastify"
 export default class FrontPage extends React.Component {
   constructor() {
     super();
@@ -33,7 +34,7 @@ export default class FrontPage extends React.Component {
         this.setState({ token: responseJson.token });
       })
       .then(() => {
-        alert("You have been successfully Logged in");
+        toast.success("You have been successfully Logged in");
         this.props.history.push("/");
         this.setState({ loading: false });
       })

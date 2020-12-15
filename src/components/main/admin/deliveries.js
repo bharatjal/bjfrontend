@@ -19,6 +19,7 @@ import filterFactory, {
   customFilter,
 } from "react-bootstrap-table2-filter";
 import paginationFactory from "react-bootstrap-table2-paginator";
+import { toast } from "react-toastify"
 
 // function headerColFormat(column, colIndex) {
 //   return (
@@ -45,7 +46,7 @@ export default class Homepage extends React.Component {
     let localdata = localStorage.getItem("token");
     if (!localdata) {
       this.props.history.push("/");
-      alert("You are not logged in");
+      toast.error("You are not logged in");
     }
     this.setState({ token: localdata });
   };
@@ -95,7 +96,7 @@ export default class Homepage extends React.Component {
         console.log(
           JSON.stringify(responseJson) + "successfully deleted........"
         );
-        alert(responseJson.message);
+        toast.success(responseJson.message);
         this.setState({ loading: false });
       })
       .catch((error) => {

@@ -8,7 +8,7 @@ import Col from "react-bootstrap/Col";
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css"
 import { Spinner } from "react-bootstrap"
-
+import { toast } from "react-toastify"
 export default class Homepage extends React.Component {
   constructor() {
     super();
@@ -24,7 +24,7 @@ export default class Homepage extends React.Component {
     let localdata = localStorage.getItem("token");
     if (!localdata) {
       this.props.history.push("/");
-      alert("You are not logged in");
+      toast.error("You are not logged in");
     }
     this.setState({ token: localdata });
   };
@@ -78,12 +78,12 @@ export default class Homepage extends React.Component {
         console.log(JSON.stringify(res));
       })
       .then(() => {
-        alert("Data Successfully deleted");
+        toast.success("Data Successfully deleted");
         this.getDriverData();
         this.setState({ loading: false });
       })
       .catch((fail) => {
-        alert(JSON.stringify(fail));
+        toast.error(JSON.stringify(fail));
       });
   };
 
