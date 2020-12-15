@@ -8,12 +8,13 @@ import AnalyticPie from "../partials/AnalyticPie";
 import AnalyticRadar from "../partials/AnalyticPolar";
 import AnalyticBar from "../partials/AnalyticBar";
 import AnalyticLine from "../partials/AnalyticLine";
+import { useHistory } from "react-router-dom"
 
 export default function Dashboard(props) {
-
+  const history = useHistory()
   useEffect(() => {
     if (!localStorage.getItem("token")) {
-      props.history.push('/')
+      history.push('/')
       // alert('You are not login.')
     }
   }, [])
