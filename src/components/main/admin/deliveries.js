@@ -53,7 +53,7 @@ export default class Homepage extends React.Component {
 
   componentDidMount = () => {
     let x = this.state.token;
-    const url = "http://bharatjaldispenser.herokuapp.com/delivery/all";
+    const url = "https://bharatjaldispenser.herokuapp.com/delivery/all";
     // const url = "https://bharatjaldispenser.herokuapp.com/delivery/daily";
     this.setState({ loading: true })
     fetch(url, {
