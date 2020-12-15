@@ -1,49 +1,35 @@
 import React, { useEffect, useState } from "react";
 import DateRangePicker from "react-bootstrap-daterangepicker";
-import Moment from "react-moment";
-import { Row, Col } from "react-bootstrap"
+import moment from "moment";
+import { Row, Col, Button } from "react-bootstrap"
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-daterangepicker/daterangepicker.css";
 
 export default function DateRangeFilterComponent(props) {
 
   const [state, setState] = useState();
-  // console.log(JSON.stringify(state) + "hgjh")
   const handleCallback = (start, end) => {
-    setState({ ...state, start: start })
-    if (props.onChange ) {
-      props.onChange({ ...state })
-      // props.onChange({ start: start.format('YYYY-MM-DD'), end: end.format('YYYY-MM-DD') })
-    }
+    setState({ ...state, start: start.format('YYYY-MM-DD HH:mm') })
+    // if(!end) setState({ ... state,end : new Date()})
   };
   const handleCallbacks = (start, end) => {
-    // const { starts ,ends} = { start, end }
-    setState({ ...state, end: end });
-    if (props.onChange) {
-      props.onChange({ ...state })
-      // props.onChange({ start: start.format('YYYY-MM-DD'), end: end.format('YYYY-MM-DD') })
-    }
+    setState({ ...state, end: end.format('YYYY-MM-DD HH:mm') });
+    // if(!start) setState({ ... state,start : new Date()})
   };
-
-  // useEffect(()=>{
-  //   if (props.onChange) {
-  //     props.onChange({ ...state })
-  //     // props.onChange({ start: start.format('YYYY-MM-DD'), end: end.format('YYYY-MM-DD') })
-  //   }
-  // },[state])
 
   return (
     <>
       From:
       <DateRangePicker
         initialSettings={{
+          // startDate: moment(),
           timePicker24Hour: true,
           singleDatePicker: true,
           timePicker: true,
           minYear: 2000,
           showDropdowns: true,
           locale: {
-            format: "YYYY-MM-DD hh:mm",
+            format: "YYYY-MM-DD HH:mm",
           },
         }}
         onCallback={handleCallback} >
@@ -52,18 +38,20 @@ export default function DateRangeFilterComponent(props) {
       To:
       <DateRangePicker
         initialSettings={{
+          startDate: new Date(),
           timePicker24Hour: true,
           singleDatePicker: true,
           timePicker: true,
           minYear: 2000,
           showDropdowns: true,
           locale: {
-            format: "YYYY-MM-DD hh:mm",
+            format: "YYYY-MM-DD HH:mm",
           },
         }}
         onCallback={handleCallbacks}>
         <input type="text" className="form-control" style={{ fontSize: '13px', minWidth: "140px" }} />
       </DateRangePicker>
+      <Button size="sm" onClick={() => { props.onCustomOnChange(state) }}> Apply </Button>
     </>
   );
 }

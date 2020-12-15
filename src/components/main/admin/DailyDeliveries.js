@@ -1,6 +1,6 @@
 import React from "react";
 import AdminLayout from "./AdminLayout";
-import BootstrapTable from "react-bootstrap-table-next";
+import BootstrapTable, { FILTERS_POSITION_BOTTOM } from "react-bootstrap-table-next";
 import ToolkitProvider, { Search } from "react-bootstrap-table2-toolkit";
 import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
 import filterFactory, {
@@ -18,6 +18,7 @@ import Col from "react-bootstrap/Col";
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 import moment from 'moment'
 import { Spinner } from "react-bootstrap"
+import { logDOM } from "@testing-library/react";
 
 export default class DailyDeliveries extends React.Component {
   constructor() {
@@ -42,7 +43,6 @@ export default class DailyDeliveries extends React.Component {
   componentDidMount = () => {
 
     let x = this.state.token;
-
     const url = "https://bharatjaldispenser.herokuapp.com/delivery/daily";
     this.setState({ loading: true })
     fetch(url, {
@@ -94,7 +94,34 @@ export default class DailyDeliveries extends React.Component {
         );
       });
   };
-
+      filterByDate = (dates) =>{
+      try {
+        if(dates) {
+          let x = this.state.token;
+       if(!dates.start) dates.start =moment(new Date(),'YYYY-MM-DD HH:mm').format('YYYY-MM-DD HH:mm')
+       if(!dates.end) dates.end =  moment(new Date(),'YYYY-MM-DD HH:mm').format('YYYY-MM-DD HH:mm')
+          const url = "https://bharatjaldispenser.herokuapp.com/delivery/datetime/filter?timestamp_from=" +dates.start+"&timestamp_to="+dates.end
+          console.log(url);
+          fetch(url, {
+            method: "GET",
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application.json",
+              "x-access-token": x,
+            }
+            // params :{
+              
+            // }
+          }).then((response) => response.json())
+          .then(response => {
+            console.log(response);
+            this.setState({data : response.deliveries})
+          })
+        }
+       } catch (error) {
+        
+         }
+      }
   render() {
     const { SearchBar } = Search;
     const columns = [
@@ -117,14 +144,15 @@ export default class DailyDeliveries extends React.Component {
         filter: customFilter({
           type: FILTER_TYPES.DATE,
           onFilter: filterVal => {
-
-            return deviceData?.filter(s => {
-              return !!(moment(s.date).isSameOrAfter(filterVal.start) && moment(s.date).isSameOrBefore(filterVal.end))
-            })
+            console.log(filterVal)
+              return this.filterByDate(filterVal)
+          //   return deviceData?.filter(s => {
+          //     // return !!(moment(s.date).isSameOrAfter(filterVal.start) && moment(s.date).isSameOrBefore(filterVal.end))
+          //   })
           }
         }),
-        filterRenderer: (onFilter, column) =>
-          <DateRangeFilterComponent onChange={onFilter} onFilter={onFilter} column={column} />
+        filterRenderer: (onFilter, column) => 
+          <DateRangeFilterComponent onCustomOnChange={this.filterByDate}  column={column} />
       },
       {
         dataField: "d_vehicle_num",
