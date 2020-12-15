@@ -6,7 +6,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
-
+import { toast } from "react-toastify"
 export default class FrontPage extends React.Component {
   constructor() {
     super();
@@ -33,14 +33,14 @@ export default class FrontPage extends React.Component {
     })
       .then((responseJson) => responseJson.json())
       .then((response) => {
-        alert(JSON.stringify(response));
+        toast(JSON.stringify(response));
       })
       .then(() => {
         this.props.history.push("/driver-console");
         this.setState({ loading: false });
       })
       .catch((error) => {
-        alert("Something went wrong please try again");
+      toast.error("Something went wrong please try again");
       });
   };
 

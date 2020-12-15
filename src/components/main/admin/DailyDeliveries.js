@@ -18,7 +18,7 @@ import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 import moment from 'moment'
 import { Spinner } from "react-bootstrap"
 import { logDOM } from "@testing-library/react";
-
+import { toast } from "react-toastify"
 export default class DailyDeliveries extends React.Component {
   constructor() {
     super();
@@ -34,7 +34,7 @@ export default class DailyDeliveries extends React.Component {
     let localdata = localStorage.getItem("token");
     if (!localdata) {
       this.props.history.push("/");
-      alert("You are not logged in");
+      toast.error("You are not logged in");
     }
     this.setState({ token: localdata });
   };
@@ -84,7 +84,7 @@ export default class DailyDeliveries extends React.Component {
         console.log(
           JSON.stringify(responseJson) + "successfully deleted........"
         );
-        alert(responseJson.message);
+        toast.success(responseJson.message);
         this.setState({ loading: false });
       })
       .catch((error) => {
@@ -93,34 +93,34 @@ export default class DailyDeliveries extends React.Component {
         );
       });
   };
-      filterByDate = (dates) =>{
-      try {
-        if(dates) {
-          let x = this.state.token;
-       if(!dates.start) dates.start =moment(new Date(),'YYYY-MM-DD HH:mm').format('YYYY-MM-DD HH:mm')
-       if(!dates.end) dates.end =  moment(new Date(),'YYYY-MM-DD HH:mm').format('YYYY-MM-DD HH:mm')
-          const url = "https://bharatjaldispenser.herokuapp.com/delivery/datetime/filter?timestamp_from=" +dates.start+"&timestamp_to="+dates.end
-          console.log(url);
-          fetch(url, {
-            method: "GET",
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application.json",
-              "x-access-token": x,
-            }
-            // params :{
-              
-            // }
-          }).then((response) => response.json())
+  filterByDate = (dates) => {
+    try {
+      if (dates) {
+        let x = this.state.token;
+        if (!dates.start) dates.start = moment(new Date(), 'YYYY-MM-DD HH:mm').format('YYYY-MM-DD HH:mm')
+        if (!dates.end) dates.end = moment(new Date(), 'YYYY-MM-DD HH:mm').format('YYYY-MM-DD HH:mm')
+        const url = "https://bharatjaldispenser.herokuapp.com/delivery/datetime/filter?timestamp_from=" + dates.start + "&timestamp_to=" + dates.end
+        console.log(url);
+        fetch(url, {
+          method: "GET",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application.json",
+            "x-access-token": x,
+          }
+          // params :{
+
+          // }
+        }).then((response) => response.json())
           .then(response => {
             console.log(response);
-            this.setState({data : response.deliveries})
+            this.setState({ data: response.deliveries })
           })
-        }
-       } catch (error) {
-        
-         }
       }
+    } catch (error) {
+
+    }
+  }
   render() {
     const { SearchBar } = Search;
     const columns = [
@@ -144,14 +144,14 @@ export default class DailyDeliveries extends React.Component {
           type: FILTER_TYPES.DATE,
           onFilter: filterVal => {
             console.log(filterVal)
-              return this.filterByDate(filterVal)
-          //   return deviceData?.filter(s => {
-          //     // return !!(moment(s.date).isSameOrAfter(filterVal.start) && moment(s.date).isSameOrBefore(filterVal.end))
-          //   })
+            return this.filterByDate(filterVal)
+            //   return deviceData?.filter(s => {
+            //     // return !!(moment(s.date).isSameOrAfter(filterVal.start) && moment(s.date).isSameOrBefore(filterVal.end))
+            //   })
           }
         }),
-        filterRenderer: (onFilter, column) => 
-          <DateRangeFilterComponent onCustomOnChange={this.filterByDate}  column={column} />
+        filterRenderer: (onFilter, column) =>
+          <DateRangeFilterComponent onCustomOnChange={this.filterByDate} column={column} />
       },
       {
         dataField: "d_vehicle_num",

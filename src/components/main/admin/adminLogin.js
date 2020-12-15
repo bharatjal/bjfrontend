@@ -7,6 +7,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
+import { toast } from "react-toastify"
 export default class Login extends React.Component {
   constructor() {
     super();
@@ -44,9 +45,9 @@ export default class Login extends React.Component {
           });
           this.setState({ loading: false });
         } else {
-          alert("Something is not right please try again");
+          toast.error("Something is not right please try again");
         }
-        alert("You have successfully logged in");
+        toast.success("You have successfully logged in");
       })
       .catch((error) => {
         console.log(error + "  getting an error in getting the data");

@@ -33,7 +33,7 @@ export default function DateRangeFilterComponent(props) {
           },
         }}
         onCallback={handleCallback} >
-        <input type="text" className="form-control" style={{ fontSize: '13px', minWidth: "140px" }} value={state.start} />
+        <input type="text" className="form-control" style={{ fontSize: '13px', minWidth: "140px" }} />
       </DateRangePicker >
       To:
       <DateRangePicker
@@ -49,7 +49,7 @@ export default function DateRangeFilterComponent(props) {
           },
         }}
         onCallback={handleCallbacks}>
-        <input type="text" className="form-control" style={{ fontSize: '13px', minWidth: "140px" }} value={state.end} />
+        <input type="text" className="form-control" style={{ fontSize: '13px', minWidth: "140px" }} />
       </DateRangePicker>
       <Button size="sm" onClick={() => { props.onCustomOnChange(state) }}> Apply </Button>
     </>
