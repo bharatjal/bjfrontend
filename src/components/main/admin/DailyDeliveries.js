@@ -12,7 +12,6 @@ import filterFactory, {
 } from "react-bootstrap-table2-filter";
 import paginationFactory from "react-bootstrap-table2-paginator";
 import DateRangeFilterComponent from '../../common/DateRangeFilter'
-// import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
@@ -232,7 +231,7 @@ export default class DailyDeliveries extends React.Component {
                       sheet="Daily Deliveries"
                       buttonText="Download as XLS"
                     />
-                    
+
                   </Col>
                   <hr />
                 </Row>
