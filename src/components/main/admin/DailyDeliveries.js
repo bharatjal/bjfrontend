@@ -96,12 +96,7 @@ export default class DailyDeliveries extends React.Component {
   };
   filterByDate = (dates) => {
     try {
-<<<<<<< HEAD
-      if (dates) {
-
-=======
       this.setState({ loading: true });
->>>>>>> 73df64a9e2ec4bc87e0422939334f486245bfc76
         let x = this.state.token;
         if(!dates) {
           dates ={}
@@ -113,12 +108,8 @@ export default class DailyDeliveries extends React.Component {
           
          if (!dates.start) dates.start = moment(new Date(), 'YYYY-MM-DD HH:mm').format('YYYY-MM-DD HH:mm')
         if (!dates.end) dates.end = moment(new Date(), 'YYYY-MM-DD HH:mm').format('YYYY-MM-DD HH:mm')
-<<<<<<< HEAD
-        this.setState({ showDates: dates })
-=======
         }
       
->>>>>>> 73df64a9e2ec4bc87e0422939334f486245bfc76
         const url = "https://bharatjaldispenser.herokuapp.com/delivery/datetime/filter?timestamp_from=" + dates.start + "&timestamp_to=" + dates.end
         console.log(url);
         fetch(url, {
