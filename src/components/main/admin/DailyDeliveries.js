@@ -26,6 +26,7 @@ export default class DailyDeliveries extends React.Component {
       data: [],
       token: "",
       loading: false,
+      showDates: {}
     };
   }
 
@@ -96,9 +97,11 @@ export default class DailyDeliveries extends React.Component {
   filterByDate = (dates) => {
     try {
       if (dates) {
+
         let x = this.state.token;
         if (!dates.start) dates.start = moment(new Date(), 'YYYY-MM-DD HH:mm').format('YYYY-MM-DD HH:mm')
         if (!dates.end) dates.end = moment(new Date(), 'YYYY-MM-DD HH:mm').format('YYYY-MM-DD HH:mm')
+        this.setState({ showDates: dates })
         const url = "https://bharatjaldispenser.herokuapp.com/delivery/datetime/filter?timestamp_from=" + dates.start + "&timestamp_to=" + dates.end
         console.log(url);
         fetch(url, {
@@ -247,6 +250,10 @@ export default class DailyDeliveries extends React.Component {
                 <Row>
                   <Col sm={6}>
                     <h2>Daily Deliveries</h2>
+                  
+                      <h6> From : <span className="tab">{this.state.showDates?.start}</span>
+                        {'  '}  To :  <span className="tab"> {this.state.showDates?.end} </span>  </h6>
+                    
                   </Col>
                   <Col sm={6} className="text-right">
                     <SearchBar {...props.searchProps} />
