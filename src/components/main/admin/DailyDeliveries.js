@@ -96,7 +96,7 @@ export default class DailyDeliveries extends React.Component {
   };
   filterByDate = (dates) => {
     try {
-      this.setState({ loading: true });
+      // this.setState({ loading: true });
         let x = this.state.token;
         if(!dates) {
           dates ={}
@@ -109,7 +109,7 @@ export default class DailyDeliveries extends React.Component {
          if (!dates.start) dates.start = moment(new Date(), 'YYYY-MM-DD HH:mm').format('YYYY-MM-DD HH:mm')
         if (!dates.end) dates.end = moment(new Date(), 'YYYY-MM-DD HH:mm').format('YYYY-MM-DD HH:mm')
         }
-      
+         this.setState({ showDates : dates})
         const url = "https://bharatjaldispenser.herokuapp.com/delivery/datetime/filter?timestamp_from=" + dates.start + "&timestamp_to=" + dates.end
         console.log(url);
         fetch(url, {
