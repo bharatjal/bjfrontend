@@ -96,12 +96,29 @@ export default class DailyDeliveries extends React.Component {
   };
   filterByDate = (dates) => {
     try {
+<<<<<<< HEAD
       if (dates) {
 
+=======
+      this.setState({ loading: true });
+>>>>>>> 73df64a9e2ec4bc87e0422939334f486245bfc76
         let x = this.state.token;
-        if (!dates.start) dates.start = moment(new Date(), 'YYYY-MM-DD HH:mm').format('YYYY-MM-DD HH:mm')
+        if(!dates) {
+          dates ={}
+          dates.start = moment(new Date(), 'YYYY-MM-DD HH:mm').format('YYYY-MM-DD HH:mm')
+          dates.end = moment(new Date(), 'YYYY-MM-DD HH:mm').format('YYYY-MM-DD HH:mm')
+          dates.start = moment(new Date(new Date(dates.start).getFullYear(),
+           new Date(dates.start).getMonth(), new Date(dates.start).getDate(),0,0,0)).format('YYYY-MM-DD HH:mm')
+        } else {
+          
+         if (!dates.start) dates.start = moment(new Date(), 'YYYY-MM-DD HH:mm').format('YYYY-MM-DD HH:mm')
         if (!dates.end) dates.end = moment(new Date(), 'YYYY-MM-DD HH:mm').format('YYYY-MM-DD HH:mm')
+<<<<<<< HEAD
         this.setState({ showDates: dates })
+=======
+        }
+      
+>>>>>>> 73df64a9e2ec4bc87e0422939334f486245bfc76
         const url = "https://bharatjaldispenser.herokuapp.com/delivery/datetime/filter?timestamp_from=" + dates.start + "&timestamp_to=" + dates.end
         console.log(url);
         fetch(url, {
@@ -116,12 +133,11 @@ export default class DailyDeliveries extends React.Component {
           // }
         }).then((response) => response.json())
           .then(response => {
-            console.log(response);
             this.setState({ data: response.deliveries })
+            this.setState({ loading: false });
           })
-      }
-    } catch (error) {
-
+      } catch (error) {
+        console.log(error);
     }
   }
   render() {
@@ -174,7 +190,7 @@ export default class DailyDeliveries extends React.Component {
       },
       {
         dataField: "thmlunit",
-        text: "Nimbu Pani (Unit)/250ML",
+        text: "Nimbu Pani (Unit)/200ML",
         sort: true,
       },
       {
@@ -229,7 +245,6 @@ export default class DailyDeliveries extends React.Component {
       },
     ];
     let deviceData = this.state.data;
-
     return (
       <AdminLayout>
         {  this.state.loading ?
