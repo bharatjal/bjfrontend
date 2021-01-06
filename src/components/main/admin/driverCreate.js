@@ -30,6 +30,7 @@ export default class UpdateDriver extends React.Component {
 
   submit = () => {
     this.setState({ loading: true });
+    console.log(this.state);
     let url = "https://bharatjaldispenser.herokuapp.com/driver/create";
     fetch(url, {
       method: "POST",
@@ -65,7 +66,7 @@ export default class UpdateDriver extends React.Component {
               <Card.Body>
                 <Card.Text>
                   <Form>
-                    <Form.Group>
+                    {/* <Form.Group>
                       <Form.Label>Name</Form.Label>
                       <Form.Control
                         type="text"
@@ -76,7 +77,7 @@ export default class UpdateDriver extends React.Component {
                           this.setState({ name: e.target.value })
                         }
                       />
-                    </Form.Group>
+                    </Form.Group> */}
                     <Form.Group>
                       <Form.Label>Email</Form.Label>
                       <Form.Control

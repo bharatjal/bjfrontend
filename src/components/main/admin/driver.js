@@ -48,7 +48,6 @@ export default class Homepage extends React.Component {
     })
       .then((response) => response.json())
       .then((responseJson) => {
-        //console.log(responseJson.driver)
         this.setState({ loading: false })
         this.setState({ data: responseJson.driver });
       })

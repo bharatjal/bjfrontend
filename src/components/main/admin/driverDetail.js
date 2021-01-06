@@ -28,7 +28,6 @@ export default class Homepage extends React.Component {
 
   componentDidMount = () => {
     let x = this.state.token;
-    console.log(x);
     const proxy = "https://cors-anywhere.herokuapp.com/";
     const url =
       "https://bharatjaldispenser.herokuapp.com/driver/" + this.state.email;
@@ -42,6 +41,7 @@ export default class Homepage extends React.Component {
     })
       .then((response) => response.json())
       .then((responseJson) => {
+
         console.log(responseJson.driver);
         this.setState({ data: responseJson.driver });
       })

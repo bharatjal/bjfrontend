@@ -22,14 +22,15 @@ export default class Updatedriver extends React.Component {
       this.props.history.push("/");
       alert("You are not logged in");
     }
-    let data = this.props.location.state.dta;
+    let data = this.props.location.state.dta; 
+    // console.log(data);
     if (this.props.location.state.dta != undefined) {
       this.setState({
-        name: data.driver_name,
+        name: data.name,
         email: data.email,
         aadhaarNo: data.aadhar_num,
         createdOn: data.created,
-        regNo: data.reg_num,
+        regNo: data.vehicle_num,
         driverId: data.id,
       });
       this.setState({ token: localdata });
@@ -53,7 +54,7 @@ export default class Updatedriver extends React.Component {
   Update = () => {
     this.setState({ loading: true });
     let x = JSON.parse(this.state.driverId);
-    const url = "https://bharatjaldispenser.herokuapp.com/driver/update/" + x;
+    const url = "https://bharatjaldispenser.herokuapp.com/driver/update/" + this.state.email;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -61,9 +62,9 @@ export default class Updatedriver extends React.Component {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        driver_name: this.state.name,
+        name: this.state.name,
         aadhar_num: this.state.aadhaarNo,
-        reg_num: this.state.regNo,
+        vehicle_num: this.state.regNo
       }),
     })
       .then((responseJson) => responseJson.json())
