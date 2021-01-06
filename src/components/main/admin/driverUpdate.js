@@ -182,7 +182,45 @@ export default class Updatedriver extends React.Component {
 
                   <button
                     className="btn btn-primary"
-                    onClick={this.Update}
+                    onClick={()=> {
+
+                      this.setState({ loading: true });
+                        let x = JSON.parse(this.state.email);
+                        const url = "https://bharatjaldispenser.herokuapp.com/driver/update/" + x;
+                        console.log(this.state.name)
+                        console.log(this.state.aadhaarNo)
+                        console.log(this.state.regNo)
+                        fetch(url, {
+                          method: "PUT",
+                          headers: {
+                            Accept: "application/josn",
+                            "Content-Type": "application/json",
+                          },
+                          body: JSON.stringify({
+                            driver_name: this.state.name,
+                            aadhar_num: this.state.aadhaarNo,
+                            reg_num: this.state.regNo,
+                          }),
+                        })
+                          .then((responseJson) => responseJson.json())
+                          .then((response) => {
+                            console.log(JSON.stringify(response) , "res");
+                            alert(JSON.stringify(response.message));
+                            this.setState({ loading: false });
+                          })
+                          .then(() => {
+                            this.props.history.push("/homepage");
+                            this.setState({ loading: false });
+                          })
+                          .catch((error) => {
+                             this.setState({ loading: false });
+                            console.log(JSON.stringify(error) , "err");
+                            this.props.history.push("/homepage");
+                            alert(JSON.stringify(error) + "  Updation failed please try again");
+                          });
+                    
+
+                    } }
                     disabled={this.state.loading}
                   >
                     {this.state.loading && (

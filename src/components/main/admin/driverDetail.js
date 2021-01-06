@@ -92,7 +92,7 @@ export default class Homepage extends React.Component {
           <td>
             <Link
               className="btn btn-info btn-sm mr-1"
-              to={{ pathname: "/driverUpdate", state: { dta: dta } }}
+              to={{ pathname: `/driverUpdate/${this.state.email}`, state: { dta: dta } }}
               disabled={this.state.loading}
             >
               Update

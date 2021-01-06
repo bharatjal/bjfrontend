@@ -9,11 +9,11 @@ import AppBar from './components/partials/AppBar'
 export default class App extends React.Component{
   render(){
     return(
-      <>
+      <div className="main-bg">
         <ToastContainer />
         <AppBar />
         <Routings/>
-      </>
+      </div>
     )
   }
 }
