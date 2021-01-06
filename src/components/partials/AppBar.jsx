@@ -5,9 +5,9 @@ import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import icon from "../../img/bharatJal.png"
 export default function AppBar() {
-  return (
+  return (<div className="main-bg">
     <Navbar bg="light" expand="lg" fixed>
-      <Navbar.Brand href="#home"> <img style={{ width : '50px' , height:'50px' }} src={icon} alt="icon"/>   Bharat Jal</Navbar.Brand>
+      <Navbar.Brand href="#home"> <img style={{ width: '50px', height: '50px' }} src={icon} alt="icon" />   Bharat Jal</Navbar.Brand>
       <Navbar.Toggle aria-controls="bahratjal-navbar" />
       <Navbar.Collapse id="bahratjal-navbar">
         <Nav className="ml-auto">
@@ -17,5 +17,5 @@ export default function AppBar() {
         </Nav>
       </Navbar.Collapse>
     </Navbar>
-  );
+  </div>);
 }

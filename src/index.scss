@@ -118,3 +118,18 @@
   min-width:100px;
   min-height: 15px;
 }
+.main-bg{
+  background-image:
+  linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.6)),
+   url('./img/marc-kleen-7t-EvqFdlbY-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+}
+.bg-light{
+  background-image:
+  linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)),
+   url('./img/sidebar-bg.jpg');
+  background-size: cover;
+  background-position: center;
+}
+

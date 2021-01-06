@@ -23,13 +23,14 @@ export default class Updatedriver extends React.Component {
       alert("You are not logged in");
     }
     let data = this.props.location.state.dta;
+    console.log(data , "data")
     if (this.props.location.state.dta != undefined) {
       this.setState({
-        name: data.driver_name,
+        name: data.name,
         email: data.email,
         aadhaarNo: data.aadhar_num,
         createdOn: data.created,
-        regNo: data.reg_num,
+        regNo: data.vehicle_num,
         driverId: data.id,
       });
       this.setState({ token: localdata });
@@ -50,37 +51,47 @@ export default class Updatedriver extends React.Component {
     console.log(typeof this.state.regNo);
   };
 
-  Update = () => {
-    this.setState({ loading: true });
-    let x = JSON.parse(this.state.driverId);
-    const url = "https://bharatjaldispenser.herokuapp.com/driver/update/" + x;
-    fetch(url, {
-      method: "PUT",
-      headers: {
-        Accept: "application/josn",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        driver_name: this.state.name,
-        aadhar_num: this.state.aadhaarNo,
-        reg_num: this.state.regNo,
-      }),
-    })
-      .then((responseJson) => responseJson.json())
-      .then((response) => {
-        console.log(JSON.stringify(response));
-        alert(JSON.stringify(response.message));
-      })
-      .then(() => {
-        this.props.history.push("/homepage");
-        this.setState({ loading: false });
-      })
-      .catch((error) => {
-        console.log(JSON.stringify(error));
-        this.props.history.push("/homepage");
-        alert(JSON.stringify(error) + "  Updation failed please try again");
-      });
-  };
+   Update = ()=>{
+     console.log('hekk')
+   }
+
+  // Update = () => {
+  //   console.log(this.state , "state")
+  //   this.setState({ loading: true });
+  //   let x = JSON.parse(this.state.email);
+  //   const url = "https://bharatjaldispenser.herokuapp.com/driver/update/" + x;
+  //   console.log(this.state.name)
+  //   console.log(this.state.aadhaarNo)
+  //   console.log(this.state.regNo)
+  //   fetch(url, {
+  //     method: "PUT",
+  //     headers: {
+  //       Accept: "application/josn",
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify({
+  //       driver_name: this.state.name,
+  //       aadhar_num: this.state.aadhaarNo,
+  //       reg_num: this.state.regNo,
+  //     }),
+  //   })
+  //     .then((responseJson) => responseJson.json())
+  //     .then((response) => {
+  //       console.log(JSON.stringify(response) , "res");
+  //       alert(JSON.stringify(response.message));
+  //       this.setState({ loading: false });
+  //     })
+  //     .then(() => {
+  //       this.props.history.push("/homepage");
+  //       this.setState({ loading: false });
+  //     })
+  //     .catch((error) => {
+  //        this.setState({ loading: false });
+  //       console.log(JSON.stringify(error) , "err");
+  //       this.props.history.push("/homepage");
+  //       alert(JSON.stringify(error) + "  Updation failed please try again");
+  //     });
+  // };
 
   render() {
     return (
@@ -181,7 +192,45 @@ export default class Updatedriver extends React.Component {
 
                   <button
                     className="btn btn-primary"
-                    onClick={this.Update}
+                    onClick={()=> {
+
+                      this.setState({ loading: true });
+                        let x = JSON.parse(this.state.email);
+                        const url = "https://bharatjaldispenser.herokuapp.com/driver/update/" + x;
+                        console.log(this.state.name)
+                        console.log(this.state.aadhaarNo)
+                        console.log(this.state.regNo)
+                        fetch(url, {
+                          method: "PUT",
+                          headers: {
+                            Accept: "application/josn",
+                            "Content-Type": "application/json",
+                          },
+                          body: JSON.stringify({
+                            driver_name: this.state.name,
+                            aadhar_num: this.state.aadhaarNo,
+                            reg_num: this.state.regNo,
+                          }),
+                        })
+                          .then((responseJson) => responseJson.json())
+                          .then((response) => {
+                            console.log(JSON.stringify(response) , "res");
+                            alert(JSON.stringify(response.message));
+                            this.setState({ loading: false });
+                          })
+                          .then(() => {
+                            this.props.history.push("/homepage");
+                            this.setState({ loading: false });
+                          })
+                          .catch((error) => {
+                             this.setState({ loading: false });
+                            console.log(JSON.stringify(error) , "err");
+                            this.props.history.push("/homepage");
+                            alert(JSON.stringify(error) + "  Updation failed please try again");
+                          });
+                    
+
+                    } }
                     disabled={this.state.loading}
                   >
                     {this.state.loading && (
