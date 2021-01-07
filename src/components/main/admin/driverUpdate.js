@@ -101,7 +101,7 @@ export default class Updatedriver extends React.Component {
                   <div className="form-row">
                     <div className="col-md-4 mb-3">
                       <label for="validationCustom01">
-                       Vechicle No
+                       Vehicle No
                       </label>
                       <input
                         type="text"
