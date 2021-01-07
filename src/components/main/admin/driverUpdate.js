@@ -53,7 +53,7 @@ export default class Updatedriver extends React.Component {
 
   Update = () => {
     this.setState({ loading: true });
-    let x = JSON.parse(this.state.driverId);
+    // let x = JSON.parse(this.state.driverId);
     const url = "https://bharatjaldispenser.herokuapp.com/driver/update/" + this.state.email;
     fetch(url, {
       method: "PUT",
@@ -101,7 +101,7 @@ export default class Updatedriver extends React.Component {
                   <div className="form-row">
                     <div className="col-md-4 mb-3">
                       <label for="validationCustom01">
-                        Driver Registration No
+                       Vechicle No
                       </label>
                       <input
                         type="text"
@@ -185,8 +185,8 @@ export default class Updatedriver extends React.Component {
                     onClick={()=> {
 
                       this.setState({ loading: true });
-                        let x = JSON.parse(this.state.email);
-                        const url = "https://bharatjaldispenser.herokuapp.com/driver/update/" + x;
+                        // let x = JSON.parse(this.state.email);
+                        const url = "https://bharatjaldispenser.herokuapp.com/driver/update/" + this.state.email;
                         console.log(this.state.name)
                         console.log(this.state.aadhaarNo)
                         console.log(this.state.regNo)
@@ -197,9 +197,9 @@ export default class Updatedriver extends React.Component {
                             "Content-Type": "application/json",
                           },
                           body: JSON.stringify({
-                            driver_name: this.state.name,
+                            name: this.state.name,
                             aadhar_num: this.state.aadhaarNo,
-                            reg_num: this.state.regNo,
+                            vehicle_num: this.state.regNo
                           }),
                         })
                           .then((responseJson) => responseJson.json())
