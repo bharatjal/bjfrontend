@@ -45,7 +45,7 @@ export default class FrontPage extends React.Component {
 
   render() {
     return (
-      <Container className="my-sm-5 my-2">
+      <Container className="my-sm-5 my-2 mb-all">
         <Row>
           <Col md={{ span: 4, offset: 4 }}>
             <Card>

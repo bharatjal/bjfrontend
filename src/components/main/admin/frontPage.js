@@ -6,7 +6,7 @@ import Col from "react-bootstrap/Col";
 export default class FrontPage extends React.Component {
   render() {
     return (
-      <Container className="text-center">  
+      <Container className="text-center mb-all">  
         <Row>
           <Col>
             <h3 className="display-1 mb-2 my-sm-5 my-font" style={{ fontSize : '70px'}}>Bharat Jal</h3>
