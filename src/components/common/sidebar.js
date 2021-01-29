@@ -28,7 +28,8 @@ class Customer extends React.Component {
 			<>
 				<ProSidebar
 					breakPoint="md"
-					image={img}
+					// image={img}
+					// image={'#fff'}
 					id="sidebar-wrapper"
 					className={`${this.props.open ? 'sidebar-opened' : 'sidebar-closed'}`}
 				>

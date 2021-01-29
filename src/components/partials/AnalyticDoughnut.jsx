@@ -1,6 +1,6 @@
 import React,{ useState , useEffect} from "react";
 import Card from "react-bootstrap/Card";
-import { Doughnut } from "react-chartjs-2";
+import { Doughnut, Bar } from "react-chartjs-2";
 
 export default function AnalyticDoughnut() {
   const [values , valuesUpdate] = useState([])
@@ -9,7 +9,7 @@ export default function AnalyticDoughnut() {
     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
     datasets: [
       {
-        label: "# of Votes",
+        label: "Monthly transactions (2021) in Rs.",
         data: values,
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
@@ -59,7 +59,14 @@ export default function AnalyticDoughnut() {
       .then((res)=>{
             // console.log(res?.deliveries[0]?.sum)
             console.log(res?.deliveries[0]?.sum_of_amount)
-            valuesUpdate(res?.deliveries[0]?.sum_of_amount)
+            valuesUpdate(res?.deliveries[0]?.sum_of_amount.map((i,index)=>{
+                if(index == 11){
+                  return 0
+                }
+                else{
+                  return i
+                }
+            }))
             // dataUpdate(dataLocal)
       })
       .catch((err)=>{
@@ -70,7 +77,7 @@ export default function AnalyticDoughnut() {
     <Card>
       <Card.Title className="text-center pt-3">Monthly Transactions </Card.Title>
       <Card.Body>
-        <Doughnut
+        <Bar
           data={dataLocal}
           width={100}
           height={300}

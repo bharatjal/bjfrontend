@@ -2,13 +2,14 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import { Doughnut, Bar, Line, Pie, Radar, Polar } from "react-chartjs-2";
 
-export default function AnalyticBar() {
+export default function AnalyticBar(props) {
   const data = {
-    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    // labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    labels: props?.labels,
     datasets: [
       {
-        label: "Overall Annual Data",
-        data: [35, 19, 30, 21, 32, 43, 36, 82, 92, 29, 20, 33],
+        label: props?.head,
+        data: props?.data,
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
           "rgba(54, 162, 235, 0.2)",
@@ -36,7 +37,7 @@ export default function AnalyticBar() {
   };
   return (
     <Card>
-      <Card.Title className="text-center pt-3">Annual Revenue (2019)</Card.Title>
+      <Card.Title className="text-center pt-3">{props?.topHead}</Card.Title>
       <Card.Body>
         <Bar
           data={data}

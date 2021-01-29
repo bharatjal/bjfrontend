@@ -42,12 +42,19 @@
 #page-content-wrapper {
   min-width: 100vw;
 }
-
+.pro-sidebar > .pro-sidebar-inner{
+ background:rgb(98, 98, 102)!important;
+}
+#sidebar-wrapper{
+  background-color: #ddd!important;
+}
 #sidebar-wrapper.sidebar-opened {
   margin-left: 0;
+  background-color: #ddd!important;
 }
 
 #sidebar-wrapper.sidebar-closed {
+  background-color: #ddd!important;
   margin-left: -16.9rem;
 }
 
@@ -127,10 +134,11 @@
   background-size: cover;
 }
 .bg-light{
-  background-image:
-  linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)),
-   url('./img/sidebar-bg.jpg');
-  background-size: cover;
-  background-position: center;
+  background: transparent!important;
+  // background-image:
+  // linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)),
+  //  url('./img/sidebar-bg.jpg');
+  // background-size: cover;
+  // background-position: center;
 }
 

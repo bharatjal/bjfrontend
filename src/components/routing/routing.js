@@ -20,6 +20,7 @@ import FrontPage from '../main/admin/frontPage'
 import Deliveries from '../main/admin/deliveries'
 import DailyDeliveries from '../main/admin/DailyDeliveries'
 import DeliveriesSum from '../main/admin/DeliveriesSum'
+import DriverGraphs from '../main/admin/DriverGraphs'
 import DeliveryDetail from '../main/admin/deliveryDetail'
 import deliveryTracking from '../main/admin/deliveryTracking'
 
@@ -51,6 +52,7 @@ export default class Routings extends React.Component{
                         <Route path='/deliveries' component={Deliveries}/>
                         <Route path='/daily-deliveries' component={DailyDeliveries}/>
                         <Route path='/deliveries-sum' component={DeliveriesSum}/>
+                        <Route path='/driver-graphs' component={DriverGraphs}/>
                         <Route path='/deliveryDetail/:id' component={DeliveryDetail}/>
                         <Route path='/delivery-tracking' component={deliveryTracking}/>
                         <Route component={Error}/>

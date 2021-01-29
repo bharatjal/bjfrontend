@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from "react";
 import Card from "react-bootstrap/Card";
-import { Pie } from "react-chartjs-2";
+import { Pie , Bar } from "react-chartjs-2";
 
 export default function AnalyticPie() {
   const [values , valuesUpdate] = useState([])
@@ -8,7 +8,7 @@ export default function AnalyticPie() {
     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
     datasets: [
       {
-        // label: "Total Transactions",
+        label: "Monthly Consumption (2021)",
         data: values,
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
@@ -57,7 +57,13 @@ export default function AnalyticPie() {
       .then((res)=>{
             // console.log(res?.deliveries[0]?.sum)
             console.log(res?.deliveries[0]?.sum_of_ltrs)
-            valuesUpdate(res?.deliveries[0]?.sum_of_ltrs)
+            valuesUpdate(res?.deliveries[0]?.sum_of_ltrs.map((i,index)=>{
+               if(index == 11){
+                 return 0
+               }else{
+                 return i
+               }
+            }))
             // dataUpdate(dataLocal)
       })
       .catch((err)=>{
@@ -69,7 +75,7 @@ export default function AnalyticPie() {
     <Card>
       <Card.Title className="text-center pt-3">Monthly Consumption</Card.Title>
       <Card.Body>
-        <Pie
+        <Bar
           data={data}
           width={100}
           height={300}

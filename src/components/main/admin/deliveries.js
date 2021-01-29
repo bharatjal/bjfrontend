@@ -68,6 +68,7 @@ export default class Homepage extends React.Component {
       .then(
         (responseJson) => {
           this.setState({ loading: false })
+          console.log(responseJson?.deliveries , "hjdghj")
           this.setState({ data: responseJson?.deliveries });
         })
       .catch((error) => {
