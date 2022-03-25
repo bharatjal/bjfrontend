@@ -29,7 +29,7 @@ export default class Homepage extends React.Component {
     console.log(x);
     const proxy = "https://cors-anywhere.herokuapp.com/";
     const url =
-      "https://bharatjaldispenser.herokuapp.com/delivery/" +
+      "http://3.108.223.75/delivery/" +
       this.state.deliveryId;
     fetch(url, {
       method: "GET",

@@ -44,7 +44,7 @@ export default function AnalyticPie() {
   };
 
   useEffect(()=>{
-    const url= `https://bharatjaldispenser.herokuapp.com/delivery/graph`
+    const url= `http://3.108.223.75/delivery/graph`
     fetch(url, {
       method: "GET",
       headers: {

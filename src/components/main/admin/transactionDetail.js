@@ -34,7 +34,7 @@ export default class Homepage extends React.Component {
     let x = this.state.token;
     console.log(x);
     const url =
-      "https://bharatjaldispenser.herokuapp.com/transaction/" +
+      "http://3.108.223.75/transaction/" +
       this.state.transId;
     fetch(url, {
       method: "GET",
@@ -57,7 +57,7 @@ export default class Homepage extends React.Component {
 
   delete = (device_id) => {
     const url =
-      "https://bharatjaldispenser.herokuapp.com/device/delete/" + device_id;
+      "http://3.108.223.75/device/delete/" + device_id;
     fetch(url, {
       method: "DELETE",
       headers: {

@@ -31,7 +31,7 @@ export default class UpdateDevice extends React.Component {
   };
 
   submit = () => {
-    const url = "https://bharatjaldispenser.herokuapp.com/transaction/create";
+    const url = "http://3.108.223.75/transaction/create";
     fetch(url, {
       method: "POST",
       headers: {

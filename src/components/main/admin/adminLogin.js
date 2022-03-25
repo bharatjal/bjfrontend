@@ -21,7 +21,7 @@ export default class Login extends React.Component {
 
   login = () => {
     this.setState({ loading: true });
-    const url = "https://bharatjaldispenser.herokuapp.com/user/login";
+    const url = "http://3.108.223.75/user/login";
     fetch(url, {
       method: "GET",
       headers: {

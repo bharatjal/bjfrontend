@@ -20,7 +20,7 @@ export default class FrontPage extends React.Component {
 
   submit = () => {
     this.setState({ loading: true });
-    const url = "https://bharatjaldispenser.herokuapp.com/driver/login";
+    const url = "http://3.108.223.75/driver/login";
     fetch(url, {
       method: "GET",
       headers: {

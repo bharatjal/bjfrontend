@@ -54,7 +54,7 @@ export default class Updatedriver extends React.Component {
   Update = () => {
     this.setState({ loading: true });
     // let x = JSON.parse(this.state.driverId);
-    const url = "https://bharatjaldispenser.herokuapp.com/driver/update/" + this.state.email;
+    const url = "http://3.108.223.75/driver/update/" + this.state.email;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -186,7 +186,7 @@ export default class Updatedriver extends React.Component {
 
                       this.setState({ loading: true });
                         // let x = JSON.parse(this.state.email);
-                        const url = "https://bharatjaldispenser.herokuapp.com/driver/update/" + this.state.email;
+                        const url = "http://3.108.223.75/driver/update/" + this.state.email;
                         console.log(this.state.name)
                         console.log(this.state.aadhaarNo)
                         console.log(this.state.regNo)

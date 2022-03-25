@@ -28,7 +28,7 @@ export default class Homepage extends React.Component {
   componentDidMount = () => {
     let x = this.state.token;
     console.log(x);
-    const url = "https://bharatjaldispenser.herokuapp.com/transaction/all";
+    const url = "http://3.108.223.75/transaction/all";
     fetch(url, {
       method: "GET",
       headers: {
@@ -53,7 +53,7 @@ export default class Homepage extends React.Component {
 
   delete = (device_id) => {
     const url =
-      "https://bharatjaldispenser.herokuapp.com/device/delete/" + device_id;
+      "http://3.108.223.75/device/delete/" + device_id;
     fetch(url, {
       method: "DELETE",
       headers: {

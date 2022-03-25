@@ -1,5 +1,5 @@
 
-### Address of the App: https://bharatjaldispenser.herokuapp.com/
+### Address of the App: http://3.108.223.75/
 
 ## Tables:
 
@@ -113,7 +113,7 @@ is generated that means the token provided is not generated with Admin account.
 
 ### 2. /driver/email    [GET]
 
-**Sample address: https://bharatjaldispenser.herokuapp.com/driver/jaibhanu@gmail.com**
+**Sample address: http://3.108.223.75/driver/jaibhanu@gmail.com**
 
 - Route to get one specific driver with the email.
 - Unprotected right now.
@@ -131,7 +131,7 @@ is generated that means the token provided is not generated with Admin account.
 
 ### 4. /driver/delete/id  [DELETE]
 
-**Sample Url: https://bharatjaldispenser.herokuapp.com/driver/delete/3**
+**Sample Url: http://3.108.223.75/driver/delete/3**
 
 - Protected.
 - x-access-token required in header
@@ -141,7 +141,7 @@ is generated that means the token provided is not generated with Admin account.
 
 ### 5 /driver/update/id  [PUT]
 
-**Sample Address: https://bharatjaldispenser.herokuapp.com/driver/update/1**
+**Sample Address: http://3.108.223.75/driver/update/1**
 
 - Here id is a integer.
 - name, aadhar_num, reg_num
@@ -174,7 +174,7 @@ exist or not in the database.
 
 ### 8. /driver/reset-password/email    [GET, PUT]
 
-**Sample Address: https://bharatjaldispenser.herokuapp.com/driver/reset-password/jaibhanu@gmail.com**
+**Sample Address: http://3.108.223.75/driver/reset-password/jaibhanu@gmail.com**
 
 - Just need to pass new Password in the Body now.
 
@@ -192,7 +192,7 @@ is generated that means the token provided is not generated with Admin account.
 
 ### 2. /deliveries/id    [GET]
 
-**Sample address: https://bharatjaldispenser.herokuapp.com/delivery/1**
+**Sample address: http://3.108.223.75/delivery/1**
 
 - To get Single Delivery.
 - Make sure the id entered here is present in the database.

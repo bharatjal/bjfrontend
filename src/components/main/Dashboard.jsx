@@ -25,7 +25,7 @@ export default function Dashboard(props) {
 
     let x = localStorage.getItem('token');
     console.log(x);
-    const url = "https://bharatjaldispenser.herokuapp.com/delivery/sum";
+    const url = "http://3.108.223.75/delivery/sum";
 
     fetch(url, {
       method: "GET",

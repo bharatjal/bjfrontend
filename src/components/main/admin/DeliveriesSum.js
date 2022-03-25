@@ -32,7 +32,7 @@ export default class DeliveriesSum extends React.Component {
   componentDidMount = () => {
     let x = this.state.token;
     console.log(x);
-    const url = "https://bharatjaldispenser.herokuapp.com/delivery/sum";
+    const url = "http://3.108.223.75/delivery/sum";
     this.setState({ loading: true })
 
     fetch(url, {
@@ -60,7 +60,7 @@ export default class DeliveriesSum extends React.Component {
 
     //alert(JSON.stringify(device_id))
     let x = this.state.token;
-    const url = "https://bharatjaldispenser.herokuapp.com/driver/delete/" + device_id;
+    const url = "http://3.108.223.75/driver/delete/" + device_id;
     fetch(url, {
       method: "DELETE",
       headers: {

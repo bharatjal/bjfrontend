@@ -43,7 +43,7 @@ export default class DailyDeliveries extends React.Component {
   componentDidMount = () => {
 
     let x = this.state.token;
-    const url = "https://bharatjaldispenser.herokuapp.com/delivery/daily";
+    const url = "http://3.108.223.75/delivery/daily";
     this.setState({ loading: true })
     fetch(url, {
       method: "GET",
@@ -71,7 +71,7 @@ export default class DailyDeliveries extends React.Component {
 
     //alert(JSON.stringify(device_id))
     let x = this.state.token;
-    const url = "https://bharatjaldispenser.herokuapp.com/driver/delete/" + device_id;
+    const url = "http://3.108.223.75/driver/delete/" + device_id;
     fetch(url, {
       method: "DELETE",
       headers: {
@@ -110,7 +110,7 @@ export default class DailyDeliveries extends React.Component {
         if (!dates.end) dates.end = moment(new Date(), 'YYYY-MM-DD HH:mm').format('YYYY-MM-DD HH:mm')
         }
          this.setState({ showDates : dates})
-        const url = "https://bharatjaldispenser.herokuapp.com/delivery/datetime/filter?timestamp_from=" + dates.start + "&timestamp_to=" + dates.end
+        const url = "http://3.108.223.75/delivery/datetime/filter?timestamp_from=" + dates.start + "&timestamp_to=" + dates.end
         console.log(url);
         fetch(url, {
           method: "GET",

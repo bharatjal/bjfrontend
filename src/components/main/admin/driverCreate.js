@@ -31,7 +31,7 @@ export default class UpdateDriver extends React.Component {
   submit = () => {
     this.setState({ loading: true });
     console.log(this.state);
-    let url = "https://bharatjaldispenser.herokuapp.com/driver/create";
+    let url = "http://3.108.223.75/driver/create";
     fetch(url, {
       method: "POST",
       headers: {

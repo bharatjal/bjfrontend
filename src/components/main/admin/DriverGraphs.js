@@ -28,7 +28,7 @@ export default class DriverGraphs extends React.Component {
     componentDidMount = () => {
         let x = this.state.token;
         console.log(x);
-        const url = "https://bharatjaldispenser.herokuapp.com/delivery/sum";
+        const url = "http://3.108.223.75/delivery/sum";
         this.setState({ loading: true })
 
         fetch(url, {

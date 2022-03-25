@@ -30,7 +30,7 @@ export default class Homepage extends React.Component {
     let x = this.state.token;
     const proxy = "https://cors-anywhere.herokuapp.com/";
     const url =
-      "https://bharatjaldispenser.herokuapp.com/driver/" + this.state.email;
+      "http://3.108.223.75/driver/" + this.state.email;
     fetch(url, {
       method: "GET",
       headers: {
@@ -53,7 +53,7 @@ export default class Homepage extends React.Component {
   delete = (driver_id) => {
     this.setState({ loading: true });
     const url =
-      "https://bharatjaldispenser.herokuapp.com/driver/delete/" + driver_id;
+      "http://3.108.223.75/driver/delete/" + driver_id;
     fetch(url, {
       method: "DELETE",
       headers: {

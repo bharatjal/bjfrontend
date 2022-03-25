@@ -28,7 +28,7 @@ export default class Homepage extends React.Component {
   componentDidMount = () => {
     let x = this.state.token;
     // console.log(x)
-    const url = "https://bharatjaldispenser.herokuapp.com/delivery/realtime/all";
+    const url = "http://3.108.223.75/delivery/realtime/all";
     setInterval(() => {
       fetch(url, {
         method: "GET",
@@ -53,7 +53,7 @@ export default class Homepage extends React.Component {
     alert(JSON.stringify(device_id));
     let x = this.state.token;
     const url =
-      "https://bharatjaldispenser.herokuapp.com/driver/delete/" + device_id;
+      "http://3.108.223.75/driver/delete/" + device_id;
     fetch(url, {
       method: "DELETE",
       headers: {

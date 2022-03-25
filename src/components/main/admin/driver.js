@@ -36,7 +36,7 @@ export default class Homepage extends React.Component {
   getDriverData = () => {
     let x = this.state.token;
     //console.log(x)
-    const url = "https://bharatjaldispenser.herokuapp.com/driver/all";
+    const url = "http://3.108.223.75/driver/all";
     this.setState({ loading: true })
     fetch(url, {
       method: "GET",
@@ -62,7 +62,7 @@ export default class Homepage extends React.Component {
     let x = this.state.token;
 
     let did = driver_id;
-    const url = "https://bharatjaldispenser.herokuapp.com/driver/delete/" + did;
+    const url = "http://3.108.223.75/driver/delete/" + did;
 
     fetch(url, {
       method: "DELETE",

@@ -64,7 +64,7 @@ export default class Homepage extends React.Component {
     //alert(JSON.stringify(device_id))
     let x = this.state.token;
     const url =
-      "https://bharatjaldispenser.herokuapp.com/driver/delete/" + device_id;
+      "http://3.108.223.75/driver/delete/" + device_id;
     fetch(url, {
       method: "DELETE",
       headers: {
@@ -103,9 +103,9 @@ export default class Homepage extends React.Component {
     let limitP=this.state.limit;
     console.log(pageN);
     console.log(limitP);
-    const url = `https://bharatjaldispenser.herokuapp.com/delivery/all?page=${pageN}&count=${limitP}`;
+    const url = `http://3.108.223.75/delivery/all?page=${pageN}&count=${limitP}`;
     ;
-    //  const url = "https://bharatjaldispenser.herokuapp.com/delivery/all";
+    //  const url = "http://3.108.223.75/delivery/all";
 
     fetch(url, {
       method: "GET",
